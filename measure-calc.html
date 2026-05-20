@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjogIk1lYXN1cmUgQ2FsYyIsICJzaG9ydF9uYW1lIjogIk1lYXN1cmVDYWxjIiwgImRlc2NyaXB0aW9uIjogIkltcGVyaWFsIG1lYXN1cmVtZW50IGNhbGN1bGF0b3IgZm9yIGNvbnN0cnVjdGlvbiIsICJzdGFydF91cmwiOiAiLiIsICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLCAiYmFja2dyb3VuZF9jb2xvciI6ICIjMGQxYjJhIiwgInRoZW1lX2NvbG9yIjogIiMwZDFiMmEiLCAib3JpZW50YXRpb24iOiAicG9ydHJhaXQtcHJpbWFyeSIsICJpY29ucyI6IFt7InNyYyI6ICJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBITjJaeUI0Yld4dWN6MGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TUM5emRtY2lJSFpwWlhkQ2IzZzlJakFnTUNBMU1USWdOVEV5SWlCM2FXUjBhRDBpTlRFeUlpQm9aV2xuYUhROUlqVXhNaUkrQ2lBZ1BISmxZM1FnZDJsa2RHZzlJalV4TWlJZ2FHVnBaMmgwUFNJMU1USWlJSEo0UFNJNE1DSWdabWxzYkQwaUl6QmtNV0l5WVNJdlBnb2dJRHhzYVc1bElIZ3hQU0l3SWlCNU1UMGlNVEk0SWlCNE1qMGlOVEV5SWlCNU1qMGlNVEk0SWlCemRISnZhMlU5SWlNeFpUTmhOVFVpSUhOMGNtOXJaUzEzYVdSMGFEMGlNU0l2UGdvZ0lEeHNhVzVsSUhneFBTSXdJaUI1TVQwaU1qVTJJaUI0TWowaU5URXlJaUI1TWowaU1qVTJJaUJ6ZEhKdmEyVTlJaU14WlROaE5UVWlJSE4wY205clpTMTNhV1IwYUQwaU1TSXZQZ29nSUR4c2FXNWxJSGd4UFNJd0lpQjVNVDBpTXpnMElpQjRNajBpTlRFeUlpQjVNajBpTXpnMElpQnpkSEp2YTJVOUlpTXhaVE5oTlRVaUlITjBjbTlyWlMxM2FXUjBhRDBpTVNJdlBnb2dJRHhzYVc1bElIZ3hQU0l4TWpnaUlIa3hQU0l3SWlCNE1qMGlNVEk0SWlCNU1qMGlOVEV5SWlCemRISnZhMlU5SWlNeFpUTmhOVFVpSUhOMGNtOXJaUzEzYVdSMGFEMGlNU0l2UGdvZ0lEeHNhVzVsSUhneFBTSXlOVFlpSUhreFBTSXdJaUI0TWowaU1qVTJJaUI1TWowaU5URXlJaUJ6ZEhKdmEyVTlJaU14WlROaE5UVWlJSE4wY205clpTMTNhV1IwYUQwaU1TSXZQZ29nSUR4c2FXNWxJSGd4UFNJek9EUWlJSGt4UFNJd0lpQjRNajBpTXpnMElpQjVNajBpTlRFeUlpQnpkSEp2YTJVOUlpTXhaVE5oTlRVaUlITjBjbTlyWlMxM2FXUjBhRDBpTVNJdlBnb2dJRHhzYVc1bElIZ3hQU0l5TlRZaUlIa3hQU0l4TXpBaUlIZ3lQU0l4TmpBaUlIa3lQU0l6T1RBaUlITjBjbTlyWlQwaUl6VmhZalJtTUNJZ2MzUnliMnRsTFhkcFpIUm9QU0l4TmlJZ2MzUnliMnRsTFd4cGJtVmpZWEE5SW5KdmRXNWtJaTgrQ2lBZ1BHeHBibVVnZURFOUlqSTFOaUlnZVRFOUlqRXpNQ0lnZURJOUlqTTFNaUlnZVRJOUlqTTVNQ0lnYzNSeWIydGxQU0lqTldGaU5HWXdJaUJ6ZEhKdmEyVXRkMmxrZEdnOUlqRTJJaUJ6ZEhKdmEyVXRiR2x1WldOaGNEMGljbTkxYm1RaUx6NEtJQ0E4WTJseVkyeGxJR040UFNJeU5UWWlJR041UFNJeE1qZ2lJSEk5SWpJeUlpQm1hV3hzUFNJak0yRTRabU00SWlCemRISnZhMlU5SWlNMVlXSTBaakFpSUhOMGNtOXJaUzEzYVdSMGFEMGlOQ0l2UGdvZ0lEeGphWEpqYkdVZ1kzZzlJakkxTmlJZ1kzazlJakV5T0NJZ2NqMGlPQ0lnWm1sc2JEMGlJekJrTVdJeVlTSXZQZ29nSUR4c2FXNWxJSGd4UFNJeE9UWWlJSGt4UFNJeU56QWlJSGd5UFNJek1UWWlJSGt5UFNJeU56QWlJSE4wY205clpUMGlJek5oT0daak9DSWdjM1J5YjJ0bExYZHBaSFJvUFNJeE1DSWdjM1J5YjJ0bExXeHBibVZqWVhBOUluSnZkVzVrSWk4K0NpQWdQSEJ2YkhsbmIyNGdjRzlwYm5SelBTSXhOakFzTXprd0lERTBPQ3cwTWpBZ01UY3lMRFF5TUNJZ1ptbHNiRDBpSXpWaFlqUm1NQ0l2UGdvZ0lEeHdiMng1WjI5dUlIQnZhVzUwY3owaU1UUTRMRFF5TUNBeE5qQXNNemt3SURFMU5DdzBNVFVpSUdacGJHdzlJaU16WVRobVl6Z2lMejRLSUNBOGNHOXNlV2R2YmlCd2IybHVkSE05SWpNMU1pd3pPVEFnTXpRMExEUXlOQ0F6TmpBc05ESTBJaUJtYVd4c1BTSWpOV0ZpTkdZd0lpOCtDaUFnUEd4cGJtVWdlREU5SWpNMU1pSWdlVEU5SWpNNU1DSWdlREk5SWpNMU1pSWdlVEk5SWpReU5DSWdjM1J5YjJ0bFBTSWpOV0ZpTkdZd0lpQnpkSEp2YTJVdGQybGtkR2c5SWpVaUlITjBjbTlyWlMxc2FXNWxZMkZ3UFNKeWIzVnVaQ0l2UGdvZ0lEeHdZWFJvSUdROUlrMGdNVFE0SURNNU1DQkJJREV4T0NBeE1UZ2dNQ0F3SURBZ016WTBJRE01TUNJZ1ptbHNiRDBpYm05dVpTSWdjM1J5YjJ0bFBTSWpNMkU0Wm1NNElpQnpkSEp2YTJVdGQybGtkR2c5SWpVaUlITjBjbTlyWlMxa1lYTm9ZWEp5WVhrOUlqRXdMRFlpSUhOMGNtOXJaUzFzYVc1bFkyRndQU0p5YjNWdVpDSXZQZ284TDNOMlp6ND0iLCAic2l6ZXMiOiAiNTEyeDUxMiIsICJ0eXBlIjogImltYWdlL3N2Zyt4bWwiLCAicHVycG9zZSI6ICJhbnkifSwgeyJzcmMiOiAiZGF0YTppbWFnZS9zdmcreG1sO2Jhc2U2NCxQSE4yWnlCNGJXeHVjejBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01DOXpkbWNpSUhacFpYZENiM2c5SWpBZ01DQTFNVElnTlRFeUlpQjNhV1IwYUQwaU5URXlJaUJvWldsbmFIUTlJalV4TWlJK0NpQWdQSEpsWTNRZ2QybGtkR2c5SWpVeE1pSWdhR1ZwWjJoMFBTSTFNVElpSUhKNFBTSTRNQ0lnWm1sc2JEMGlJekJrTVdJeVlTSXZQZ29nSUR4c2FXNWxJSGd4UFNJd0lpQjVNVDBpTVRJNElpQjRNajBpTlRFeUlpQjVNajBpTVRJNElpQnpkSEp2YTJVOUlpTXhaVE5oTlRVaUlITjBjbTlyWlMxM2FXUjBhRDBpTVNJdlBnb2dJRHhzYVc1bElIZ3hQU0l3SWlCNU1UMGlNalUySWlCNE1qMGlOVEV5SWlCNU1qMGlNalUySWlCemRISnZhMlU5SWlNeFpUTmhOVFVpSUhOMGNtOXJaUzEzYVdSMGFEMGlNU0l2UGdvZ0lEeHNhVzVsSUhneFBTSXdJaUI1TVQwaU16ZzBJaUI0TWowaU5URXlJaUI1TWowaU16ZzBJaUJ6ZEhKdmEyVTlJaU14WlROaE5UVWlJSE4wY205clpTMTNhV1IwYUQwaU1TSXZQZ29nSUR4c2FXNWxJSGd4UFNJeE1qZ2lJSGt4UFNJd0lpQjRNajBpTVRJNElpQjVNajBpTlRFeUlpQnpkSEp2YTJVOUlpTXhaVE5oTlRVaUlITjBjbTlyWlMxM2FXUjBhRDBpTVNJdlBnb2dJRHhzYVc1bElIZ3hQU0l5TlRZaUlIa3hQU0l3SWlCNE1qMGlNalUySWlCNU1qMGlOVEV5SWlCemRISnZhMlU5SWlNeFpUTmhOVFVpSUhOMGNtOXJaUzEzYVdSMGFEMGlNU0l2UGdvZ0lEeHNhVzVsSUhneFBTSXpPRFFpSUhreFBTSXdJaUI0TWowaU16ZzBJaUI1TWowaU5URXlJaUJ6ZEhKdmEyVTlJaU14WlROaE5UVWlJSE4wY205clpTMTNhV1IwYUQwaU1TSXZQZ29nSUR4c2FXNWxJSGd4UFNJeU5UWWlJSGt4UFNJeE16QWlJSGd5UFNJeE5qQWlJSGt5UFNJek9UQWlJSE4wY205clpUMGlJelZoWWpSbU1DSWdjM1J5YjJ0bExYZHBaSFJvUFNJeE5pSWdjM1J5YjJ0bExXeHBibVZqWVhBOUluSnZkVzVrSWk4K0NpQWdQR3hwYm1VZ2VERTlJakkxTmlJZ2VURTlJakV6TUNJZ2VESTlJak0xTWlJZ2VUSTlJak01TUNJZ2MzUnliMnRsUFNJak5XRmlOR1l3SWlCemRISnZhMlV0ZDJsa2RHZzlJakUySWlCemRISnZhMlV0YkdsdVpXTmhjRDBpY205MWJtUWlMejRLSUNBOFkybHlZMnhsSUdONFBTSXlOVFlpSUdONVBTSXhNamdpSUhJOUlqSXlJaUJtYVd4c1BTSWpNMkU0Wm1NNElpQnpkSEp2YTJVOUlpTTFZV0kwWmpBaUlITjBjbTlyWlMxM2FXUjBhRDBpTkNJdlBnb2dJRHhqYVhKamJHVWdZM2c5SWpJMU5pSWdZM2s5SWpFeU9DSWdjajBpT0NJZ1ptbHNiRDBpSXpCa01XSXlZU0l2UGdvZ0lEeHNhVzVsSUhneFBTSXhPVFlpSUhreFBTSXlOekFpSUhneVBTSXpNVFlpSUhreVBTSXlOekFpSUhOMGNtOXJaVDBpSXpOaE9HWmpPQ0lnYzNSeWIydGxMWGRwWkhSb1BTSXhNQ0lnYzNSeWIydGxMV3hwYm1WallYQTlJbkp2ZFc1a0lpOCtDaUFnUEhCdmJIbG5iMjRnY0c5cGJuUnpQU0l4TmpBc016a3dJREUwT0N3ME1qQWdNVGN5TERReU1DSWdabWxzYkQwaUl6VmhZalJtTUNJdlBnb2dJRHh3YjJ4NVoyOXVJSEJ2YVc1MGN6MGlNVFE0TERReU1DQXhOakFzTXprd0lERTFOQ3cwTVRVaUlHWnBiR3c5SWlNellUaG1ZemdpTHo0S0lDQThjRzlzZVdkdmJpQndiMmx1ZEhNOUlqTTFNaXd6T1RBZ016UTBMRFF5TkNBek5qQXNOREkwSWlCbWFXeHNQU0lqTldGaU5HWXdJaTgrQ2lBZ1BHeHBibVVnZURFOUlqTTFNaUlnZVRFOUlqTTVNQ0lnZURJOUlqTTFNaUlnZVRJOUlqUXlOQ0lnYzNSeWIydGxQU0lqTldGaU5HWXdJaUJ6ZEhKdmEyVXRkMmxrZEdnOUlqVWlJSE4wY205clpTMXNhVzVsWTJGd1BTSnliM1Z1WkNJdlBnb2dJRHh3WVhSb0lHUTlJazBnTVRRNElETTVNQ0JCSURFeE9DQXhNVGdnTUNBd0lEQWdNelkwSURNNU1DSWdabWxzYkQwaWJtOXVaU0lnYzNSeWIydGxQU0lqTTJFNFptTTRJaUJ6ZEhKdmEyVXRkMmxrZEdnOUlqVWlJSE4wY205clpTMWtZWE5vWVhKeVlYazlJakV3TERZaUlITjBjbTlyWlMxc2FXNWxZMkZ3UFNKeWIzVnVaQ0l2UGdvOEwzTjJaejQ9IiwgInNpemVzIjogIjE5MngxOTIiLCAidHlwZSI6ICJpbWFnZS9zdmcreG1sIiwgInB1cnBvc2UiOiAibWFza2FibGUifV19">
+  <meta name="theme-color" content="#0d1b2a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="MeasureCalc">
+  <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiI+CiAgPHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSI4MCIgZmlsbD0iIzBkMWIyYSIvPgogIDxsaW5lIHgxPSIwIiB5MT0iMTI4IiB4Mj0iNTEyIiB5Mj0iMTI4IiBzdHJva2U9IiMxZTNhNTUiIHN0cm9rZS13aWR0aD0iMSIvPgogIDxsaW5lIHgxPSIwIiB5MT0iMjU2IiB4Mj0iNTEyIiB5Mj0iMjU2IiBzdHJva2U9IiMxZTNhNTUiIHN0cm9rZS13aWR0aD0iMSIvPgogIDxsaW5lIHgxPSIwIiB5MT0iMzg0IiB4Mj0iNTEyIiB5Mj0iMzg0IiBzdHJva2U9IiMxZTNhNTUiIHN0cm9rZS13aWR0aD0iMSIvPgogIDxsaW5lIHgxPSIxMjgiIHkxPSIwIiB4Mj0iMTI4IiB5Mj0iNTEyIiBzdHJva2U9IiMxZTNhNTUiIHN0cm9rZS13aWR0aD0iMSIvPgogIDxsaW5lIHgxPSIyNTYiIHkxPSIwIiB4Mj0iMjU2IiB5Mj0iNTEyIiBzdHJva2U9IiMxZTNhNTUiIHN0cm9rZS13aWR0aD0iMSIvPgogIDxsaW5lIHgxPSIzODQiIHkxPSIwIiB4Mj0iMzg0IiB5Mj0iNTEyIiBzdHJva2U9IiMxZTNhNTUiIHN0cm9rZS13aWR0aD0iMSIvPgogIDxsaW5lIHgxPSIyNTYiIHkxPSIxMzAiIHgyPSIxNjAiIHkyPSIzOTAiIHN0cm9rZT0iIzVhYjRmMCIgc3Ryb2tlLXdpZHRoPSIxNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPGxpbmUgeDE9IjI1NiIgeTE9IjEzMCIgeDI9IjM1MiIgeTI9IjM5MCIgc3Ryb2tlPSIjNWFiNGYwIiBzdHJva2Utd2lkdGg9IjE2IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8Y2lyY2xlIGN4PSIyNTYiIGN5PSIxMjgiIHI9IjIyIiBmaWxsPSIjM2E4ZmM4IiBzdHJva2U9IiM1YWI0ZjAiIHN0cm9rZS13aWR0aD0iNCIvPgogIDxjaXJjbGUgY3g9IjI1NiIgY3k9IjEyOCIgcj0iOCIgZmlsbD0iIzBkMWIyYSIvPgogIDxsaW5lIHgxPSIxOTYiIHkxPSIyNzAiIHgyPSIzMTYiIHkyPSIyNzAiIHN0cm9rZT0iIzNhOGZjOCIgc3Ryb2tlLXdpZHRoPSIxMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHBvbHlnb24gcG9pbnRzPSIxNjAsMzkwIDE0OCw0MjAgMTcyLDQyMCIgZmlsbD0iIzVhYjRmMCIvPgogIDxwb2x5Z29uIHBvaW50cz0iMTQ4LDQyMCAxNjAsMzkwIDE1NCw0MTUiIGZpbGw9IiMzYThmYzgiLz4KICA8cG9seWdvbiBwb2ludHM9IjM1MiwzOTAgMzQ0LDQyNCAzNjAsNDI0IiBmaWxsPSIjNWFiNGYwIi8+CiAgPGxpbmUgeDE9IjM1MiIgeTE9IjM5MCIgeDI9IjM1MiIgeTI9IjQyNCIgc3Ryb2tlPSIjNWFiNGYwIiBzdHJva2Utd2lkdGg9IjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxwYXRoIGQ9Ik0gMTQ4IDM5MCBBIDExOCAxMTggMCAwIDAgMzY0IDM5MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjM2E4ZmM4IiBzdHJva2Utd2lkdGg9IjUiIHN0cm9rZS1kYXNoYXJyYXk9IjEwLDYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L3N2Zz4=">
+<title>Measure Calc</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+  :root {
+    --bg:        #0d1b2a;
+    --bg2:       #112236;
+    --bg3:       #0a1520;
+    --line:      #1e3a55;
+    --line2:     #2a5080;
+    --blue:      #3a8fc8;
+    --blue-lt:   #5ab4f0;
+    --white:     #e8f4ff;
+    --white-dim: #7aa8cc;
+    --white-faint:#2a4a66;
+    --accent:    #ffffff;
+    --green:     #4ecdc4;
+    --green-dim: #1a4a46;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: 'Share Tech Mono', 'Courier New', monospace;
+    min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center;
+    /* Blueprint grid background */
+    background-image:
+      linear-gradient(rgba(58,143,200,0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(58,143,200,0.07) 1px, transparent 1px),
+      linear-gradient(rgba(58,143,200,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(58,143,200,0.03) 1px, transparent 1px);
+    background-size: 80px 80px, 80px 80px, 20px 20px, 20px 20px;
+  }
+
+  header {
+    width: 100%;
+    background: var(--bg3);
+    border-bottom: 2px solid var(--blue);
+    padding: 16px 0 12px;
+    text-align: center;
+    letter-spacing: 0.3em;
+    position: relative;
+  }
+  header::before {
+    content: '';
+    display: block;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--blue-lt), transparent);
+    margin-bottom: 14px;
+  }
+  header .sub {
+    font-size: 9px; color: var(--white-dim);
+    letter-spacing: 0.5em; text-transform: uppercase;
+  }
+  header h1 {
+    font-size: 22px; font-weight: normal;
+    color: var(--accent); letter-spacing: 0.25em;
+    margin: 6px 0 4px;
+    text-shadow: 0 0 20px rgba(90,180,240,0.4);
+  }
+  header .title-line {
+    display: flex; align-items: center; justify-content: center; gap: 12px;
+  }
+  header .hbar { flex: 1; max-width: 60px; height: 1px; background: var(--blue); }
+
+  .tabs {
+    display: flex; width: 100%; max-width: 480px;
+    border-bottom: 2px solid var(--blue);
+  }
+  .tab {
+    flex: 1; padding: 10px 4px;
+    background: var(--bg3); color: var(--white-dim);
+    border: none; border-right: 1px solid var(--line);
+    font-family: 'Share Tech Mono', 'Courier New', monospace;
+    font-size: 10px; letter-spacing: 0.12em;
+    cursor: pointer; text-transform: uppercase;
+  }
+  .tab:last-child { border-right: none; }
+  .tab.active {
+    background: var(--bg2);
+    color: var(--blue-lt);
+    border-bottom: 2px solid var(--blue-lt);
+    margin-bottom: -2px;
+  }
+
+  .container { width: 100%; max-width: 480px; padding: 18px 16px; }
+
+  .section-label {
+    font-size: 8px; color: var(--blue);
+    letter-spacing: 0.4em; margin-bottom: 8px; margin-top: 14px;
+    text-transform: uppercase;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .section-label::after {
+    content: ''; flex: 1; height: 1px;
+    background: linear-gradient(90deg, var(--line2), transparent);
+  }
+
+  .value-block {
+    background: var(--bg2);
+    border: 1px solid var(--line2);
+    border-left: 3px solid var(--blue);
+    padding: 12px;
+    margin-bottom: 8px;
+    position: relative;
+  }
+  .value-header {
+    display: flex; justify-content: space-between;
+    align-items: center; margin-bottom: 10px;
+  }
+  .value-name {
+    font-size: 8px; color: var(--blue-lt);
+    letter-spacing: 0.4em;
+  }
+  .remove-btn {
+    background: transparent;
+    border: 1px solid var(--line2);
+    color: var(--white-dim);
+    font-family: 'Share Tech Mono', 'Courier New', monospace;
+    font-size: 12px; width: 24px; height: 24px;
+    cursor: pointer; line-height: 1;
+  }
+  .remove-btn:hover { border-color: var(--blue-lt); color: var(--blue-lt); }
+
+  .row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+
+  .field-label {
+    font-size: 8px; color: var(--white-dim);
+    letter-spacing: 0.25em; text-align: center; margin-bottom: 6px;
+  }
+
+  input[type=number], select {
+    background: transparent;
+    border: none; border-bottom: 1px solid var(--blue);
+    color: var(--white);
+    font-family: 'Share Tech Mono', 'Courier New', monospace;
+    font-size: 20px; text-align: center;
+    width: 100%; padding: 4px 0; outline: none;
+    -moz-appearance: textfield;
+  }
+  input[type=number]:focus { border-bottom-color: var(--blue-lt); }
+  input[type=number]::-webkit-outer-spin-button,
+  input[type=number]::-webkit-inner-spin-button { -webkit-appearance: none; }
+  select {
+    background: var(--bg3); cursor: pointer;
+    font-size: 14px; color: var(--white);
+  }
+  option { background: var(--bg3); }
+
+  .add-btn {
+    width: 100%; padding: 12px;
+    background: transparent;
+    border: 1px dashed var(--line2);
+    color: var(--white-dim);
+    font-family: 'Share Tech Mono', 'Courier New', monospace;
+    font-size: 11px; letter-spacing: 0.2em;
+    cursor: pointer; margin-bottom: 2px;
+    transition: all 0.15s;
+  }
+  .add-btn:hover { border-color: var(--blue); color: var(--blue-lt); }
+
+  .ops { display: flex; justify-content: center; gap: 10px; margin: 12px 0 4px; }
+  .op-btn {
+    width: 48px; height: 48px;
+    background: var(--bg3); color: var(--blue-lt);
+    border: 1px solid var(--blue);
+    font-size: 22px; cursor: pointer;
+    font-family: 'Share Tech Mono', 'Courier New', monospace;
+    font-weight: normal;
+  }
+  .op-btn.active {
+    background: var(--blue);
+    color: var(--accent);
+    border-color: var(--blue-lt);
+    box-shadow: 0 0 12px rgba(90,180,240,0.3);
+  }
+  .op-note {
+    font-size: 8px; color: var(--white-faint);
+    text-align: center; margin-bottom: 4px; letter-spacing: 0.15em;
+  }
+
+  /* Result box */
+  .result-box {
+    background: var(--bg3);
+    border: 1px solid var(--blue);
+    border-top: 3px solid var(--blue-lt);
+    margin-top: 20px; padding: 18px 16px;
+    position: relative;
+  }
+  .result-box::before {
+    content: 'RESULT';
+    position: absolute; top: -9px; left: 16px;
+    background: var(--bg3);
+    color: var(--blue-lt);
+    font-size: 8px; letter-spacing: 0.4em;
+    padding: 0 6px;
+  }
+  .result-main {
+    font-size: 36px; letter-spacing: 0.05em;
+    text-align: center; margin-bottom: 16px; min-height: 48px;
+    color: var(--accent);
+    text-shadow: 0 0 24px rgba(90,180,240,0.5);
+  }
+  .result-main.empty { color: var(--white-faint); text-shadow: none; }
+
+  .breakdown {
+    border-top: 1px solid var(--line);
+    padding-top: 12px;
+    display: grid; grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 8px; text-align: center;
+  }
+  .breakdown-item .bl {
+    font-size: 7px; color: var(--white-dim);
+    letter-spacing: 0.2em; margin-bottom: 4px;
+  }
+  .breakdown-item .bv { font-size: 16px; color: var(--blue-lt); }
+
+  .convert-grid {
+    border-top: 1px solid var(--line);
+    margin-top: 12px; padding-top: 12px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+  }
+  .cv-row {
+    display: flex; justify-content: space-between;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 6px;
+  }
+  .cv-row .cl { font-size: 8px; color: var(--white-dim); letter-spacing: 0.2em; line-height: 20px; }
+  .cv-row .cv { font-size: 13px; color: var(--white); }
+
+  .footer-note {
+    font-size: 8px; color: var(--white-faint);
+    text-align: center; margin-top: 14px; letter-spacing: 0.2em;
+  }
+
+  .cv-input-row { display: flex; gap: 10px; align-items: flex-end; margin-bottom: 16px; }
+  .cv-input-row input { font-size: 24px; flex: 2; }
+  .cv-input-row select { flex: 1; }
+
+  .clear-btn {
+    width: 100%; padding: 8px;
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--white-faint);
+    font-family: 'Share Tech Mono', 'Courier New', monospace;
+    font-size: 9px; letter-spacing: 0.25em;
+    cursor: pointer; margin-top: 10px; text-transform: uppercase;
+  }
+  .clear-btn:hover { border-color: var(--line2); color: var(--white-dim); }
+
+  /* Scalar mode */
+  .scalar-measurement {
+    background: var(--bg2);
+    border: 1px solid var(--line2);
+    border-left: 3px solid var(--blue);
+    padding: 14px; margin-bottom: 10px;
+  }
+  .scalar-number-block {
+    background: var(--bg2);
+    border: 1px solid var(--green-dim);
+    border-left: 3px solid var(--green);
+    padding: 14px; margin-bottom: 10px;
+  }
+  .scalar-number-block input[type=number] {
+    border-bottom-color: var(--green);
+    color: var(--green);
+    font-size: 30px;
+  }
+  .scalar-number-block input[type=number]:focus { border-bottom-color: #7eeee8; }
+  .scalar-op-row {
+    display: flex; align-items: center; gap: 10px;
+    margin: 10px 0; justify-content: center;
+  }
+  .scalar-op-btn {
+    width: 52px; height: 52px;
+    background: var(--bg3); color: var(--blue-lt);
+    border: 1px solid var(--blue);
+    font-size: 24px; cursor: pointer;
+    font-family: 'Share Tech Mono', 'Courier New', monospace;
+  }
+  .scalar-op-btn.active {
+    background: var(--blue); color: var(--accent);
+    border-color: var(--blue-lt);
+    box-shadow: 0 0 12px rgba(90,180,240,0.3);
+  }
+  .scalar-formula {
+    font-size: 12px; color: var(--white-dim);
+    text-align: center; letter-spacing: 0.1em;
+    margin: 6px 0 12px; min-height: 18px;
+    border: 1px solid var(--line);
+    padding: 8px; background: var(--bg3);
+  }
+  .scalar-formula span.mval { color: var(--blue-lt); }
+  .scalar-formula span.nval { color: var(--green); }
+  .green-tag {
+    display: inline-block; font-size: 7px;
+    color: var(--green); border: 1px solid var(--green-dim);
+    padding: 1px 5px; letter-spacing: 0.2em;
+    vertical-align: middle; margin-left: 6px;
+  }
+
+  /* Subtle corner marks like a drawing border */
+  .drawing-corner {
+    position: fixed; width: 20px; height: 20px;
+    border-color: var(--blue); border-style: solid; opacity: 0.3;
+  }
+  .dc-tl { top: 8px; left: 8px; border-width: 1px 0 0 1px; }
+  .dc-tr { top: 8px; right: 8px; border-width: 1px 1px 0 0; }
+  .dc-bl { bottom: 8px; left: 8px; border-width: 0 0 1px 1px; }
+  .dc-br { bottom: 8px; right: 8px; border-width: 0 1px 1px 0; }
+</style>
+</head>
+<body>
+
+<div class="drawing-corner dc-tl"></div>
+<div class="drawing-corner dc-tr"></div>
+<div class="drawing-corner dc-bl"></div>
+<div class="drawing-corner dc-br"></div>
+
+<header>
+  <div class="sub">IMPERIAL UNIT CALCULATOR</div>
+  <div class="title-line" style="margin: 8px 24px 6px;">
+    <div class="hbar"></div>
+    <h1>MEASURE CALC</h1>
+    <div class="hbar"></div>
+  </div>
+  <div class="sub">FT &middot; IN &middot; FRACTIONS</div>
+</header>
+
+<div class="tabs">
+  <button class="tab active" id="tab-build" onclick="setMode('build')">&#9632; MULTI-VALUE</button>
+  <button class="tab" id="tab-scalar" onclick="setMode('scalar')">&#8470; SCALAR</button>
+  <button class="tab" id="tab-convert" onclick="setMode('convert')">&#8644; CONVERT</button>
+</div>
+
+<div class="container">
+
+  <!-- MULTI-VALUE ARITHMETIC MODE -->
+  <div id="mode-build">
+    <div class="section-label">DIMENSIONS</div>
+    <div id="values-list"></div>
+    <button class="add-btn" onclick="addValue()">+ ADD DIMENSION</button>
+
+    <div class="section-label" style="margin-top:18px;">OPERATION</div>
+    <div class="ops">
+      <button class="op-btn active" id="op-+" onclick="setOp('+')">+</button>
+      <button class="op-btn" id="op--" onclick="setOp('-')">&#8722;</button>
+      <button class="op-btn" id="op-x" onclick="setOp('x')">&#215;</button>
+      <button class="op-btn" id="op-d" onclick="setOp('d')">&#247;</button>
+    </div>
+    <div class="op-note" id="op-note">SUMMING ALL DIMENSIONS</div>
+  </div>
+
+  <!-- SCALAR MODE -->
+  <div id="mode-scalar" style="display:none">
+
+    <div class="section-label">MEASUREMENT</div>
+    <div class="scalar-measurement">
+      <div class="row">
+        <div>
+          <div class="field-label">FT</div>
+          <input type="number" min="0" id="sc-ft" placeholder="0" oninput="calcScalar()">
+        </div>
+        <div>
+          <div class="field-label">IN</div>
+          <input type="number" min="0" max="11" id="sc-in" placeholder="0" oninput="calcScalar()">
+        </div>
+        <div>
+          <div class="field-label">FRAC</div>
+          <select id="sc-frac" onchange="calcScalar()"></select>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-label">OPERATION</div>
+    <div class="scalar-op-row">
+      <button class="scalar-op-btn active" id="sop-d" onclick="setScalarOp('d')">&#247;</button>
+      <button class="scalar-op-btn" id="sop-x" onclick="setScalarOp('x')">&#215;</button>
+      <button class="scalar-op-btn" id="sop-+" onclick="setScalarOp('+')">+</button>
+      <button class="scalar-op-btn" id="sop--" onclick="setScalarOp('-')">&#8722;</button>
+    </div>
+
+    <div class="section-label">PLAIN NUMBER <span class="green-tag">NOT A LENGTH</span></div>
+    <div class="scalar-number-block">
+      <div style="text-align:center;">
+        <div class="field-label" style="color:#4ecdc4;">E.G. NUMBER OF RISERS, STUDS, PANELS...</div>
+        <input type="number" min="0" step="any" id="sc-num" placeholder="14" oninput="calcScalar()" style="max-width:200px;">
+      </div>
+    </div>
+
+    <div class="scalar-formula" id="sc-formula">&nbsp;</div>
+
+  </div>
+
+  <!-- CONVERT MODE -->
+  <div id="mode-convert" style="display:none">
+    <div class="section-label">INPUT VALUE</div>
+    <div class="cv-input-row">
+      <input type="number" min="0" id="cv-input" placeholder="0" oninput="calc()">
+      <select id="cv-from" onchange="calc()">
+        <option value="inches">inches</option>
+        <option value="feet">feet</option>
+        <option value="mm">mm</option>
+        <option value="cm">cm</option>
+        <option value="m">meters</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- RESULT -->
+  <div class="result-box">
+    <div class="result-main empty" id="result-main">&#8212;</div>
+    <div class="breakdown" id="breakdown" style="display:none">
+      <div class="breakdown-item"><div class="bl">FEET</div><div class="bv" id="bd-ft">0</div></div>
+      <div class="breakdown-item"><div class="bl">INCHES</div><div class="bv" id="bd-in">0</div></div>
+      <div class="breakdown-item"><div class="bl">1/16ths</div><div class="bv" id="bd-16">0</div></div>
+      <div class="breakdown-item"><div class="bl">DEC IN</div><div class="bv" id="bd-dec">0</div></div>
+    </div>
+    <div class="convert-grid" id="convert-grid" style="display:none">
+      <div class="cv-row"><span class="cl">INCHES</span><span class="cv" id="cv-in"></span></div>
+      <div class="cv-row"><span class="cl">FEET</span><span class="cv" id="cv-ft"></span></div>
+      <div class="cv-row"><span class="cl">MM</span><span class="cv" id="cv-mm"></span></div>
+      <div class="cv-row"><span class="cl">CM</span><span class="cv" id="cv-cm"></span></div>
+      <div class="cv-row"><span class="cl">METERS</span><span class="cv" id="cv-m"></span></div>
+    </div>
+  </div>
+
+  <button class="clear-btn" onclick="clearAll()">&#10005; CLEAR ALL</button>
+  <div class="footer-note">FRACTIONS ROUNDED TO NEAREST 1/16&quot; &nbsp;&middot;&nbsp; REV A</div>
+</div>
+
+<script>
+var FRACTIONS = [
+  {label:"--", value:0},
+  {label:'1/16"', value:1/16},
+  {label:'1/8"', value:2/16},
+  {label:'3/16"', value:3/16},
+  {label:'1/4"', value:4/16},
+  {label:'5/16"', value:5/16},
+  {label:'3/8"', value:6/16},
+  {label:'7/16"', value:7/16},
+  {label:'1/2"', value:8/16},
+  {label:'9/16"', value:9/16},
+  {label:'5/8"', value:10/16},
+  {label:'11/16"', value:11/16},
+  {label:'3/4"', value:12/16},
+  {label:'13/16"', value:13/16},
+  {label:'7/8"', value:14/16},
+  {label:'15/16"', value:15/16}
+];
+var FRAC_DISPLAY = ["","1/16","1/8","3/16","1/4","5/16","3/8","7/16","1/2","9/16","5/8","11/16","3/4","13/16","7/8","15/16",""];
+var LABELS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var currentMode = "build";
+var currentOp = "+";
+var scalarOp = "d";
+var valueCount = 0;
+var valueIds = [];
+
+(function() {
+  var sel = document.getElementById("sc-frac");
+  FRACTIONS.forEach(function(f) {
+    var opt = document.createElement("option");
+    opt.value = f.value; opt.textContent = f.label;
+    sel.appendChild(opt);
+  });
+})();
+
+function makeFracSelect(id) {
+  var sel = document.createElement("select");
+  sel.id = id; sel.onchange = calc;
+  FRACTIONS.forEach(function(f) {
+    var opt = document.createElement("option");
+    opt.value = f.value; opt.textContent = f.label;
+    sel.appendChild(opt);
+  });
+  return sel;
+}
+
+function addValue() {
+  var idx = valueIds.length;
+  var id = "v" + valueCount++;
+  valueIds.push(id);
+
+  var block = document.createElement("div");
+  block.className = "value-block"; block.id = "block-" + id;
+
+  var header = document.createElement("div");
+  header.className = "value-header";
+
+  var nameEl = document.createElement("div");
+  nameEl.className = "value-name"; nameEl.id = "name-" + id;
+  nameEl.textContent = "DIM " + LABELS[idx % 26];
+
+  var removeBtn = document.createElement("button");
+  removeBtn.className = "remove-btn"; removeBtn.textContent = "X";
+  removeBtn.onclick = (function(vid){ return function(){ removeValue(vid); }; })(id);
+
+  header.appendChild(nameEl); header.appendChild(removeBtn);
+
+  var row = document.createElement("div");
+  row.className = "row";
+
+  function makeField(label, inputId, isIn) {
+    var div = document.createElement("div");
+    var lbl = document.createElement("div");
+    lbl.className = "field-label"; lbl.textContent = label;
+    var inp = document.createElement("input");
+    inp.type = "number"; inp.min = "0"; inp.placeholder = "0";
+    inp.id = inputId; inp.oninput = calc;
+    if (isIn) inp.max = "11";
+    div.appendChild(lbl); div.appendChild(inp);
+    return div;
+  }
+
+  var frDiv = document.createElement("div");
+  var frLabel = document.createElement("div");
+  frLabel.className = "field-label"; frLabel.textContent = "FRAC";
+  var frSel = makeFracSelect(id + "-frac");
+  frDiv.appendChild(frLabel); frDiv.appendChild(frSel);
+
+  row.appendChild(makeField("FT", id+"-ft", false));
+  row.appendChild(makeField("IN", id+"-in", true));
+  row.appendChild(frDiv);
+
+  block.appendChild(header); block.appendChild(row);
+  document.getElementById("values-list").appendChild(block);
+  updateLabelsAndButtons(); calc();
+}
+
+function removeValue(id) {
+  valueIds = valueIds.filter(function(v){ return v !== id; });
+  var el = document.getElementById("block-" + id);
+  if (el) el.remove();
+  updateLabelsAndButtons(); calc();
+}
+
+function updateLabelsAndButtons() {
+  valueIds.forEach(function(id, idx) {
+    var nameEl = document.getElementById("name-" + id);
+    if (nameEl) nameEl.textContent = "DIM " + LABELS[idx % 26];
+    var block = document.getElementById("block-" + id);
+    if (block) {
+      var btn = block.querySelector(".remove-btn");
+      if (btn) btn.style.visibility = valueIds.length > 2 ? "visible" : "hidden";
+    }
+  });
+}
+
+function setMode(m) {
+  currentMode = m;
+  ["build","scalar","convert"].forEach(function(t) {
+    document.getElementById("mode-" + t).style.display = t === m ? "" : "none";
+    document.getElementById("tab-" + t).className = "tab" + (t === m ? " active" : "");
+  });
+  if (m === "scalar") calcScalar();
+  else calc();
+}
+
+function setOp(op) {
+  currentOp = op;
+  ["+","-","x","d"].forEach(function(o) {
+    document.getElementById("op-" + o).className = "op-btn" + (o === op ? " active" : "");
+  });
+  var notes = { "+":"SUMMING ALL DIMENSIONS", "-":"SUBTRACTING B,C... FROM A", "x":"MULTIPLYING ALL DIMENSIONS", "d":"DIVIDING A BY B,C..." };
+  document.getElementById("op-note").textContent = notes[op];
+  calc();
+}
+
+function setScalarOp(op) {
+  scalarOp = op;
+  ["d","x","+","-"].forEach(function(o) {
+    document.getElementById("sop-" + o).className = "scalar-op-btn" + (o === op ? " active" : "");
+  });
+  calcScalar();
+}
+
+function getValueInches(id) {
+  var ft = parseFloat((document.getElementById(id+"-ft")||{}).value) || 0;
+  var inches = parseFloat((document.getElementById(id+"-in")||{}).value) || 0;
+  var frac = parseFloat((document.getElementById(id+"-frac")||{}).value) || 0;
+  return ft * 12 + inches + frac;
+}
+
+function toFracParts(totalInches) {
+  if (isNaN(totalInches) || totalInches < 0) return null;
+  var feet = Math.floor(totalInches / 12);
+  var rem = totalInches - feet * 12;
+  var wholeIn = Math.floor(rem);
+  var sixteenths = Math.round((rem - wholeIn) * 16);
+  var adjIn = wholeIn + (sixteenths === 16 ? 1 : 0);
+  var adjSixteenths = sixteenths === 16 ? 0 : sixteenths;
+  var adjFt = feet + (adjIn >= 12 ? 1 : 0);
+  var finalIn = adjIn >= 12 ? adjIn - 12 : adjIn;
+  return { feet: adjFt, inches: finalIn, sixteenths: adjSixteenths };
+}
+
+function toFractionalString(totalInches) {
+  var p = toFracParts(totalInches);
+  if (!p) return "--";
+  var fracStr = FRAC_DISPLAY[p.sixteenths] ? " " + FRAC_DISPLAY[p.sixteenths] : "";
+  var parts = [];
+  if (p.feet > 0) parts.push(p.feet + "'");
+  if (p.inches > 0 || fracStr) parts.push(p.inches + fracStr + '"');
+  return parts.join(" ") || '0"';
+}
+
+function calcScalar() {
+  var ft = parseFloat(document.getElementById("sc-ft").value) || 0;
+  var inches = parseFloat(document.getElementById("sc-in").value) || 0;
+  var frac = parseFloat(document.getElementById("sc-frac").value) || 0;
+  var measurement = ft * 12 + inches + frac;
+  var num = parseFloat(document.getElementById("sc-num").value);
+  var opSymbols = { "d":"÷", "x":"×", "+":"+", "-":"−" };
+  var mStr = toFractionalString(measurement);
+  var nStr = isNaN(num) ? "?" : num;
+  document.getElementById("sc-formula").innerHTML =
+    '<span class="mval">' + mStr + '</span> &nbsp;' + opSymbols[scalarOp] + '&nbsp; <span class="nval">' + nStr + '</span>';
+  var result = null;
+  if (!isNaN(num)) {
+    if (scalarOp === "d" && num !== 0) result = measurement / num;
+    else if (scalarOp === "x") result = measurement * num;
+    else if (scalarOp === "+") result = measurement + num;
+    else if (scalarOp === "-" && measurement - num >= 0) result = measurement - num;
+  }
+  showResult(result, false);
+}
+
+function calc() {
+  var result = null;
+  if (currentMode === "build" && valueIds.length > 0) {
+    var vals = valueIds.map(function(id){ return getValueInches(id); });
+    if (currentOp === "+") result = vals.reduce(function(a,b){ return a+b; }, 0);
+    else if (currentOp === "-") result = vals.slice(1).reduce(function(a,b){ return a-b; }, vals[0]);
+    else if (currentOp === "x") result = vals.reduce(function(a,b){ return a*b; }, 1);
+    else if (currentOp === "d") {
+      var rest = vals.slice(1);
+      if (rest.every(function(v){ return v !== 0; }))
+        result = rest.reduce(function(a,b){ return a/b; }, vals[0]);
+    }
+  } else if (currentMode === "convert") {
+    var n = parseFloat(document.getElementById("cv-input").value);
+    var from = document.getElementById("cv-from").value;
+    if (!isNaN(n)) {
+      if (from === "inches") result = n;
+      else if (from === "feet") result = n * 12;
+      else if (from === "mm") result = n / 25.4;
+      else if (from === "cm") result = n / 2.54;
+      else if (from === "m") result = n * 39.3701;
+    }
+  }
+  showResult(result, currentMode === "convert");
+}
+
+function showResult(result, showConvert) {
+  var rm = document.getElementById("result-main");
+  var bd = document.getElementById("breakdown");
+  var cg = document.getElementById("convert-grid");
+  if (result !== null && !isNaN(result) && result >= 0) {
+    rm.textContent = toFractionalString(result);
+    rm.className = "result-main";
+    var p = toFracParts(result);
+    if (p) {
+      document.getElementById("bd-ft").textContent = p.feet;
+      document.getElementById("bd-in").textContent = p.inches;
+      document.getElementById("bd-16").textContent = p.sixteenths;
+      document.getElementById("bd-dec").textContent = result.toFixed(4);
+      bd.style.display = "grid";
+    }
+    if (showConvert) {
+      document.getElementById("cv-in").textContent = result.toFixed(4);
+      document.getElementById("cv-ft").textContent = (result/12).toFixed(4);
+      document.getElementById("cv-mm").textContent = (result*25.4).toFixed(2);
+      document.getElementById("cv-cm").textContent = (result*2.54).toFixed(3);
+      document.getElementById("cv-m").textContent = (result/39.3701).toFixed(4);
+      cg.style.display = "grid";
+    } else { cg.style.display = "none"; }
+  } else {
+    rm.textContent = "--";
+    rm.className = "result-main empty";
+    bd.style.display = "none";
+    cg.style.display = "none";
+  }
+}
+
+function clearAll() {
+  if (currentMode === "build") {
+    valueIds = []; valueCount = 0;
+    document.getElementById("values-list").innerHTML = "";
+    addValue(); addValue();
+  } else if (currentMode === "scalar") {
+    ["sc-ft","sc-in","sc-num"].forEach(function(id){ document.getElementById(id).value = ""; });
+    document.getElementById("sc-frac").value = 0;
+    document.getElementById("sc-formula").innerHTML = "&nbsp;";
+    showResult(null, false);
+  } else if (currentMode === "convert") {
+    document.getElementById("cv-input").value = "";
+    showResult(null, false);
+  }
+}
+
+addValue();
+addValue();
+</script>
+<script>
+if ('serviceWorker' in navigator) {
+  var swCode = "\nvar CACHE = 'measure-calc-v1';\nself.addEventListener('install', function(e) {\n  self.skipWaiting();\n});\nself.addEventListener('activate', function(e) {\n  self.clients.claim();\n});\nself.addEventListener('fetch', function(e) {\n  e.respondWith(\n    caches.match(e.request).then(function(r) { return r || fetch(e.request); })\n  );\n});\n";
+  var blob = new Blob([swCode], {type: 'application/javascript'});
+  var swUrl = URL.createObjectURL(blob);
+  navigator.serviceWorker.register(swUrl).then(function(reg) {
+    console.log('SW registered');
+  }).catch(function(e) {
+    console.log('SW error', e);
+  });
+}
+</script>
+</body>
+</html>
